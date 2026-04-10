@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation PRINCE2® - Gouvernance et rôle du Sponsor | DSI</title>
+    <meta name="description" content="Formation certifiante PRINCE2 pour Sponsors et Directeurs - 4 et 5 mai 2026 à Pessac. Devenez un décideur stratégique efficace.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #1A5F7A;
+            --color-secondary: #F5A623;
+            --color-accent: #FF6B35;
+            --color-dark: #1C3334;
+            --color-light: #F8F9FA;
+            --color-white: #FFFFFF;
+            --color-text: #2C3E50;
+            --color-text-light: #5A6C7D;
+            --color-border: #E1E8ED;
+            
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            --shadow-sm: 0 2px 8px rgba(26, 95, 122, 0.08);
+            --shadow-md: 0 4px 16px rgba(26, 95, 122, 0.12);
+            --shadow-lg: 0 8px 32px rgba(26, 95, 122, 0.16);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-light);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+            color: var(--color-white);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M50 10L90 90H10z" fill="%23F5A623" opacity="0.05"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .highlight {
+            color: var(--color-secondary);
+            font-style: italic;
+        }
+        
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            max-width: 800px;
+            line-height: 1.6;
+            padding: 1.5rem;
+            background: rgba(245, 166, 35, 0.15);
+            border-left: 4px solid var(--color-secondary);
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Info Cards */
+        .info-section {
+            background: var(--color-white);
+            margin: -4rem auto 4rem;
+            position: relative;
+            z-index: 10;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+        }
+        
+        .info-card {
+            padding: 2rem;
+            border-right: 1px solid var(--color-border);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .info-card:last-child {
+            border-right: none;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--color-secondary);
+            transition: height 0.3s ease;
+        }
+        
+        .info-card:hover::before {
+            height: 100%;
+        }
+        
+        .info-card:hover {
+            background: linear-gradient(to bottom, rgba(245, 166, 35, 0.03), transparent);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .info-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.5;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: var(--color-white);
+            margin: 4rem 0;
+            padding: 4rem 0;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-secondary), transparent);
+        }
+        
+        /* Infographic */
+        .infographic-container {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(to bottom, var(--color-light), var(--color-white));
+            border-radius: 16px;
+        }
+        
+        .infographic {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Accordion */
+        .accordion {
+            background: var(--color-white);
+        }
+        
+        .accordion-item {
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .accordion-item:hover {
+            border-color: var(--color-secondary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .accordion-header {
+            background: linear-gradient(to right, var(--color-light), var(--color-white));
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--color-primary);
+            transition: var(--transition);
+            user-select: none;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(to right, rgba(245, 166, 35, 0.1), var(--color-white));
+        }
+        
+        .accordion-header.active {
+            background: linear-gradient(to right, var(--color-primary), var(--color-dark));
+            color: var(--color-white);
+        }
+        
+        .accordion-icon {
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-header.active .accordion-icon {
+            transform: rotate(45deg);
+            color: var(--color-secondary);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 2rem;
+        }
+        
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 2rem;
+        }
+        
+        .sequence-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .sequence-content h4 {
+            color: var(--color-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .sequence-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sequence-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .sequence-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        
+        /* Downloads */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .download-card {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+            color: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--color-secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+            transition: var(--transition);
+        }
+        
+        .download-card:hover::before {
+            transform: translate(20%, -20%) scale(1.5);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .download-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .download-info {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .download-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .download-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        /* Map */
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 450px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-dark);
+            color: var(--color-white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background: rgba(245, 166, 35, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-item a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .footer-link {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .footer-link:hover {
+            color: var(--color-white);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                max-width: 150px;
+            }
+            
+            .info-card {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+            
+            .info-card:last-child {
+                border-bottom: none;
+            }
+            
+            .accordion-header {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .accordion-content.active {
+                padding: 1.5rem;
+            }
+            
+            .sequence-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container slide-in">
+                <img src="Logo_DSI.png" alt="Direction des Systèmes d'Information" class="logo">
+            </div>
+            <h1 class="fade-in-up">
+                Formation <span class="highlight">PRINCE2® Certifiante</span><br>
+                Sponsors & Directeurs
+            </h1>
+            <div class="tagline fade-in-up">
+                💡 <strong>PRINCE2 ne sert pas à mieux gérer les projets. Il sert à mieux décider.</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- Info Cards -->
+    <div class="container">
+        <section class="info-section fade-in-up">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <div class="info-label">Dates</div>
+                    <div class="info-value">
+                        4 mai 2026 : 09h30 - 12h00<br>
+                        5 mai 2026 : 09h30 - 12h00
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⏱️</div>
+                    <div class="info-label">Durée</div>
+                    <div class="info-value">
+                        ½ journée – 3h30<br>
+                        (dont 20 min de pause)
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-label">Lieu</div>
+                    <div class="info-value">
+                        1 avenue Paul Langevin<br>
+                        33600 Pessac
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-label">Public</div>
+                    <div class="info-value">
+                        Sponsors, Directeurs SI & Métiers<br>
+                        Membres de COPIL
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Infographie -->
+            <section class="section">
+                <h2 class="section-title">L'essentiel de la formation</h2>
+                
+                <!-- Objectifs pédagogiques -->
+                <div style="background: linear-gradient(to right, rgba(26, 95, 122, 0.05), transparent); padding: 2rem; border-left: 4px solid var(--color-secondary); border-radius: 8px; margin-bottom: 3rem;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1.5rem;">
+                        🎯 Objectifs pédagogiques de la formation
+                    </h3>
+                    <p style="font-weight: 600; margin-bottom: 1rem; color: var(--color-text);">
+                        À l'issue de la formation, les participants seront capables de :
+                    </p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding-left: 2rem; margin-bottom: 1rem; position: relative; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: var(--color-secondary); font-weight: 700; font-size: 1.2rem;">✓</span>
+                            Analyser leur rôle et leurs responsabilités de sponsor dans un projet PRINCE2®
+                        </li>
+                        <li style="padding-left: 2rem; margin-bottom: 1rem; position: relative; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: var(--color-secondary); font-weight: 700; font-size: 1.2rem;">✓</span>
+                            Comprendre les mécanismes de gouvernance PRINCE2® pour intervenir au bon moment
+                        </li>
+                        <li style="padding-left: 2rem; margin-bottom: 1rem; position: relative; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: var(--color-secondary); font-weight: 700; font-size: 1.2rem;">✓</span>
+                            Évaluer la viabilité continue d'un projet à partir d'éléments synthétiques
+                        </li>
+                        <li style="padding-left: 2rem; margin-bottom: 1rem; position: relative; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: var(--color-secondary); font-weight: 700; font-size: 1.2rem;">✓</span>
+                            Prendre des décisions structurées en situation d'exception ou de crise projet
+                        </li>
+                        <li style="padding-left: 2rem; margin-bottom: 1rem; position: relative; line-height: 1.6;">
+                            <span style="position: absolute; left: 0; color: var(--color-secondary); font-weight: 700; font-size: 1.2rem;">✓</span>
+                            Utiliser un langage commun PRINCE2® en comité de pilotage pour aligner SI et Métiers
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="infographic-container">
+                    <img src="Infographie_Formation_PRINCE2.png" alt="Devenir un Sponsor Décisionnaire - Infographie PRINCE2" class="infographic">
+                </div>
+            </section>
+
+            <!-- Programme -->
+            <section class="section">
+                <h2 class="section-title">Programme détaillé</h2>
+                
+                <div class="accordion">
+                    <!-- Séquence 0 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 0 – Ouverture et cadrage exécutif</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 15 minutes</span>
+                            </div>
+                            <h4>Objectifs</h4>
+                            <ul>
+                                <li>Objectifs de la formation et cadre d'intervention du sponsor</li>
+                                <li>Partage d'expériences : implication des sponsors dans les projets</li>
+                                <li>Positionnement de PRINCE2® comme méthode de gouvernance et de décision</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Icebreaker exécutif – sondage interactif et échanges dirigés</p>
+                        </div>
+                    </div>
+
+                    <!-- Séquence 1 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 1 – Le rôle du sponsor dans un projet PRINCE2®</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 45 minutes</span>
+                            </div>
+                            <h4>Contenu</h4>
+                            <ul>
+                                <li>Le rôle du sponsor et du comité de pilotage dans PRINCE2®</li>
+                                <li>Différence entre pilotage stratégique et management opérationnel</li>
+                                <li>Responsabilités non délégables du sponsor</li>
+                                <li>Positionnement sponsor / chef de projet</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Atelier participatif « Est-ce mon rôle ? » – Travail en binômes sponsors et débrief collectif</p>
+                        </div>
+                    </div>
+
+                    <!-- Séquence 2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 2 – Gouvernance, tolérances et management par exception</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 45 minutes</span>
+                            </div>
+                            <h4>Contenu</h4>
+                            <ul>
+                                <li>Principes de gouvernance PRINCE2®</li>
+                                <li>Notion de tolérances (coût, délai, périmètre, risques, bénéfices)</li>
+                                <li>Management par exception : quand décider, quand déléguer</li>
+                                <li>Attentes du sponsor vis-à-vis du chef de projet</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Jeu de positionnement décisionnel sur des situations projet – Analyse collective guidée</p>
+                        </div>
+                    </div>
+
+                    <!-- Séquence 3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 3 – Viabilité continue et décisions structurantes</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 60 minutes</span>
+                            </div>
+                            <h4>Contenu</h4>
+                            <ul>
+                                <li>Le cas d'affaire PRINCE2® comme outil d'aide à la décision</li>
+                                <li>Indicateurs de progression et signaux faibles</li>
+                                <li>Différence entre projet en difficulté et projet non viable</li>
+                                <li>Décisions possibles : poursuivre, ajuster, arrêter</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Étude de cas fil rouge SI / Métier – Travail en sous-groupes et restitution collective</p>
+                        </div>
+                    </div>
+
+                    <!-- Séquence 4 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 4 – Gestion des exceptions et arbitrage en comité de pilotage</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 45 minutes</span>
+                            </div>
+                            <h4>Contenu</h4>
+                            <ul>
+                                <li>Comprendre le rapport d'exception PRINCE2®</li>
+                                <li>Rôle du sponsor en situation de crise projet</li>
+                                <li>Arbitrage par scénarios</li>
+                                <li>Utilisation d'un langage commun SI / Métiers</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Jeu de rôle : simulation de comité de pilotage de crise – Décisions collectives et débrief structuré</p>
+                        </div>
+                    </div>
+
+                    <!-- Séquence 5 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Séquence 5 – Synthèse et transposition opérationnelle</span>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="sequence-meta">
+                                <span class="meta-badge">⏱️ Durée : 20 minutes</span>
+                            </div>
+                            <h4>Contenu</h4>
+                            <ul>
+                                <li>Synthèse des messages clés</li>
+                                <li>Auto-diagnostic du participant</li>
+                                <li>Identification des pratiques à faire évoluer</li>
+                                <li>Engagement individuel de mise en application</li>
+                            </ul>
+                            <h4>Modalités pédagogiques</h4>
+                            <p>Travail individuel guidé – micro plan d'action sponsor</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Téléchargements -->
+            <section class="section">
+                <h2 class="section-title">Documents à télécharger</h2>
+                <div class="downloads-grid">
+                    <a href="programme.pdf" class="download-card" download>
+                        <div class="download-icon">📄</div>
+                        <div class="download-info">
+                            <div class="download-title">Programme de formation</div>
+                            <div class="download-subtitle">Format PDF</div>
+                        </div>
+                    </a>
+                    <a href="livret-stagiaire.pdf" class="download-card" download>
+                        <div class="download-icon">📘</div>
+                        <div class="download-info">
+                            <div class="download-title">Livret stagiaire</div>
+                            <div class="download-subtitle">Format PDF</div>
+                        </div>
+                    </a>
+                    <a href="Infographie_Formation_PRINCE2.png" class="download-card" download>
+                        <div class="download-icon">🖼️</div>
+                        <div class="download-info">
+                            <div class="download-title">Infographie PRINCE2®</div>
+                            <div class="download-subtitle">Format PNG</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Localisation -->
+            <section class="section">
+                <h2 class="section-title">Localisation</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.7869837473624!2d-0.6479099!3d44.8063889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54d7f7e7a7a7a7%3A0x7a7a7a7a7a7a7a7a!2s1%20Avenue%20Paul%20Langevin%2C%2033600%20Pessac!5e0!3m2!1sfr!2sfr!4v1234567890"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte de localisation - 1 avenue Paul Langevin, 33600 Pessac">
+                    </iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Contact Formateur</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div>
+                            <strong>BLANC Lucas</strong><br>
+                            Formateur PRINCE2® certifié
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <a href="/cdn-cgi/l/email-protection#aac6dfc9cbd984c8c6cbc4c9eacbdacc84cbd9d9c584ccd8"><span class="__cf_email__" data-cfemail="dbb7aeb8baa8f5b9b7bab5b89bbaabbdf5baa8a8b4f5bda9">[email&#160;protected]</span></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Informations Pratiques</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            1 avenue Paul Langevin<br>
+                            33600 Pessac
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🅿️</div>
+                        <div>
+                            Parking disponible sur site<br>
+                            Accès PMR
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>À Propos</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎓</div>
+                        <div>
+                            <strong>Formation certifiante</strong><br>
+                            Compatible déploiement PRINCE2®<br>
+                            à l'échelle de l'organisation
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Direction des Systèmes d'Information - Tous droits réservés</p>
+                <p style="margin-top: 1rem;">
+                    Formation conçue dans le respect des principes d'inclusion et d'accessibilité
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+                
+                // Close all accordions
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked accordion if it wasn't active
+                if (!isActive) {
+                    header.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
